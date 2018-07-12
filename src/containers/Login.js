@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import Card, {
-    CardPrimaryContent,
-    CardMedia,
-    CardActions,
-    CardActionButtons,
-    CardActionIcons
-} from "@material/react-card";
+import Card, { CardMedia } from "@material/react-card";
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { smscCredentials } from '../actions/index';
+
+const CREDITS_URL = 'https://dimbbxpg58.execute-api.eu-west-2.amazonaws.com/sms_app_credit_check_stage/check-credit?';
+
+
 
 class Login extends Component {
     constructor(props) {
@@ -16,18 +18,44 @@ class Login extends Component {
         };
         this.onUsernameChange = this.onUsernameChange.bind(this);
         this.onPasswordChange = this.onPasswordChange.bind(this);
+        this.onLoginSubmit = this.onLoginSubmit.bind(this);
     }
+
+
 
     onUsernameChange(e) {
         this.setState({
             username: e.target.value
         });
+
     }
 
     onPasswordChange(e) {
         this.setState({
             password: e.target.value
         });
+
+    }
+
+    onLoginSubmit(e) {
+        e.preventDefault();
+        let validCredits = 0;
+        const username = this.state.username;
+        const password = this.state.password;
+        axios.get(`${CREDITS_URL}username=${username}&password=${password}`)
+            .then((response => {
+                validCredits = parseInt(response.data.credits, 10);
+            }))
+            .then(() => {
+                if(validCredits !== -1){
+                    this.props.smscCredentials(username, password, () => {
+                        this.props.history.push('/products');
+                    });
+                } else {
+                    console.log('Not logged in!');
+                }
+            })
+            .then()
     }
 
     render() {
@@ -43,7 +71,7 @@ class Login extends Component {
                                 wide
                             />
                             <section className="mdc-card__supporting-text" />
-                            <form name="login" id="login">
+                            <form name="login" id="login" onSubmit={this.onLoginSubmit}>
                                 <section className="mdc-card__supporting-text">
                                     <div
                                         className="mdc-text-field mdc-text-field--upgraded mdc-text-field--fullwidth"
@@ -78,6 +106,9 @@ class Login extends Component {
     }
 }
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ smscCredentials }, dispatch);
+}
 
 
-export default Login;
+export default connect(null, mapDispatchToProps)(Login);
