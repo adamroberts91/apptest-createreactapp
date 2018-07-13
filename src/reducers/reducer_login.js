@@ -1,9 +1,8 @@
-import { SMSC_CREDENTIALS} from "../actions";
-//import _ from 'lodash';
+import { SMSC_LOGIN } from "../actions";
 
-export default function(state = {}, action) {
+export default function (state = { loggedIn: false }, action){
     switch(action.type){
-        case SMSC_CREDENTIALS:
+        case SMSC_LOGIN:
             return action.payload;
         default:
             return state;

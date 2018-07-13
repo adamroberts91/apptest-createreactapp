@@ -7873,7 +7873,6 @@ a.mdc-list-item
 
 .mdc-menu
 {
-    position: absolute;
     z-index: 4;
 
     display: none;
