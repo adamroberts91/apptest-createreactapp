@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import LoginReducer from './reducer_smscCredentials';
+import SMSCCredentials from './reducer_smscCredentials';
+import loggedIn from './reducer_login';
 
 const rootReducer = combineReducers({
-    credentials: LoginReducer
+    credentials: SMSCCredentials,
+    loggedIn
 });
 
 export default rootReducer;
