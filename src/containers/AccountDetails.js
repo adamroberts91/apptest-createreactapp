@@ -27,6 +27,10 @@ class AccountDetails extends React.Component{
                     </h1>
                     <li className="mdc-list-divider" role="separator"/>
                         <Link to="/" className="mdc-list-item">
+                            <MaterialIcon icon="account_box" style={{marginRight: "32px"}}/>
+                            Accounts
+                        </Link>
+                        <Link to="/" className="mdc-list-item">
                             <MaterialIcon icon="exit_to_app" style={{marginRight: "32px"}}/>
                             Logout
                         </Link>
