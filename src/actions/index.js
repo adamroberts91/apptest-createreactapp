@@ -1,8 +1,11 @@
 export const SMSC_CREDENTIALS = 'SMSC_CREDENTIALS';
 export const SMSC_LOGIN = 'SMSC_LOGIN';
 
+let AccountId = 0;
 
 export function smscCredentials(username, password, callback) {
+    AccountId++;
+
     const data = {
         username,
         password
@@ -11,6 +14,7 @@ export function smscCredentials(username, password, callback) {
     callback();
     return {
         type: SMSC_CREDENTIALS,
+        id: AccountId,
         payload: data
     }
 }

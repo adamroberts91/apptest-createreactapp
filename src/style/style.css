@@ -5,6 +5,10 @@ body {
     background-color: #f5f5f5;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container, .full-width-container {
     width: 100%;
     padding-top: 20px;

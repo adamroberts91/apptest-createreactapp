@@ -8,7 +8,7 @@ class AccountDetails extends React.Component{
 
         if(!this.props.credentials) {
             return (
-                <div style={{backgroundColor: "white",marginTop: "45px", width: "240px", float: "right"}}>
+                <div style={{backgroundColor: "white", width: "240px"}}>
                     <ul className="mdc-menu__items mdc-list" role="menu">
                         <a href="/login" className="mdc-list-item">
                             <MaterialIcon icon="computer" style={{marginRight: "32px"}}/>
@@ -20,7 +20,7 @@ class AccountDetails extends React.Component{
         }
 
         return (
-            <div style={{backgroundColor: "white",marginTop: "45px", width: "240px", float: "right"}}>
+            <div style={{backgroundColor: "white", width: "240px", float: "right"}}>
                 <ul className="mdc-menu__items mdc-list" role="menu">
                     <h1 className="mdc-typography--headline6" style={{padding: "0 16px 0 16px"}}>
                         <b>{this.props.credentials.username}</b>
@@ -44,6 +44,7 @@ class AccountDetails extends React.Component{
 
 function mapStateToProps({credentials}) {
     return { credentials };
+
 }
 
 export default connect(mapStateToProps)(AccountDetails);
