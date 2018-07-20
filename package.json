@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material/icon-toggle": "^0.37.1",
     "@material/react-button": "^0.3.0",
     "@material/react-card": "^0.3.0",
     "@material/react-material-icon": "^0.3.0",
     "@material/react-text-field": "^0.3.0",
     "@material/react-top-app-bar": "^0.3.0",
+    "@material/toolbar": "^0.37.1",
     "axios": "^0.18.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

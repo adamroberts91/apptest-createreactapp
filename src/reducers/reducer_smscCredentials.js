@@ -1,9 +1,9 @@
 import { SMSC_CREDENTIALS} from "../actions";
 
-export default function(state = null, action) {
+export default function(state = {}, action) {
     switch(action.type){
         case SMSC_CREDENTIALS:
-            return [
+            return [...state,
                 {
                     id: action.id,
                     username: action.payload.username,

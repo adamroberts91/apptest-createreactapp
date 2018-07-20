@@ -12,6 +12,7 @@ export function smscCredentials(username, password, callback) {
     };
 
     callback();
+    console.log("Action has worked");
     return {
         type: SMSC_CREDENTIALS,
         id: AccountId,

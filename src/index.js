@@ -7,10 +7,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Products from './components/Products.js'
 import Login from './containers/Login.js';
-import './style/my-dot-theme.css';
- import './style/style.css';
+import AccountsList from './containers/AccountsList';
 
-//import {mdc} from './js/index.js';
+import './style/my-dot-theme.css';
+import './style/style.css';
 
 import reducers from './reducers';
 
@@ -21,9 +21,10 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <BrowserRouter>
-            <Switch>
-                <Route path="/login" component={Login} />
-                <Route path="/" component={Products} />
+            <Switch>>
+                <Route exact path="/accountslist" component={AccountsList} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/" component={Products} />
             </Switch>
         </BrowserRouter>
     </Provider>
