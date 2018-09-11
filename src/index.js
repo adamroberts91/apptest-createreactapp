@@ -14,7 +14,9 @@ import './style/style.css';
 
 import reducers from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore); 
+
+//test
 
 
 
